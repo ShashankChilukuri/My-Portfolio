@@ -1,0 +1,132 @@
+{
+    "name": "Chilukuri Shashank",
+    "tagline": "Final-year Computer Science Student",
+    "about": "I am a Final-year Computer Science student with a CGPA of 9.3, capable of building web applications, REST APIs, and real-time features using JavaScript, React, Node.js, MySQL, and MongoDB.\n\nI focus on backend development, database modeling, and writing clean, maintainable code. I have experience in building production-ready applications and have completed a Data Engineering Internship at Wipro, working with Microsoft Fabric and Databricks.",
+    "skills": [
+        "JavaScript",
+        "Python",
+        "Java",
+        "C",
+        "Ruby (Beginner)",
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MySQL",
+        "MongoDB",
+        "AWS (EC2, S3, Lambda - Beginner)",
+        "Render",
+        "Vercel",
+        "Git",
+        "GitHub",
+        "Postman",
+        "Databricks",
+        "Microsoft Fabric",
+        "System Design Basics",
+        "Problem Solving"
+    ],
+    "projects": [
+        {
+            "title": "URL Shortener",
+            "description": "Full-stack URL shortening service with modular backend, authentication, and analytics.",
+            "techStack": [
+                "React",
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "JWT",
+                "Render"
+            ]
+        },
+        {
+            "title": "Real-Time Chat Application",
+            "description": "Scalable real-time chat system with event-driven architecture and low-latency communication.",
+            "techStack": [
+                "React",
+                "Node.js",
+                "Express.js",
+                "Socket.io"
+            ]
+        },
+        {
+            "title": "Word Search Tool",
+            "description": "Responsive word search utility with dictionary API integration, history, and caching.",
+            "techStack": [
+                "React.js",
+                "Express.js",
+                "API Integration"
+            ]
+        },
+        {
+            "title": "AskByDoc",
+            "description": "AI RAG chatbot for uploading PDFs and receiving context-aware answers.",
+            "techStack": [
+                "LangChain",
+                "ChromaDB",
+                "AI"
+            ]
+        },
+        {
+            "title": "AI Interview Assistant",
+            "description": "Mock interview platform using Gemini API for automated evaluation.",
+            "techStack": [
+                "Gemini API",
+                "AI"
+            ]
+        },
+        {
+            "title": "Feedback Analyzer",
+            "description": "Sentiment and tone analysis tool classifying user feedback using transformer models and Gemini API.",
+            "techStack": [
+                "React",
+                "FastAPI",
+                "Python",
+                "Gemini API"
+            ]
+        },
+        {
+            "title": "Satellite Image Segmentation",
+            "description": "U-Net based system for identifying map features from satellite imagery.",
+            "techStack": [
+                "U-Net",
+                "Deep Learning",
+                "Python"
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "company": "Wipro Ltd.",
+            "role": "Summer Intern – Data Engineering",
+            "period": "June 2025 – Present",
+            "description": "Working on Python-based data engineering pipelines, workflow automation, and building dashboards using Databricks. Collaborating on scalable data solutions using Microsoft Fabric and optimizing SQL queries."
+        }
+    ],
+    "education": [
+        {
+            "degree": "B.Tech in Computer Science and Engineering",
+            "institution": "KL University",
+            "year": "2022 – 2026",
+            "details": "CGPA: 9.3 (Up to 6th Semester)"
+        },
+        {
+            "degree": "Intermediate (MPC Stream)",
+            "institution": "Narayana Junior College",
+            "year": "2020 – 2022",
+            "details": "Marks: 956/1000"
+        },
+        {
+            "degree": "High School",
+            "institution": "Montessori High School",
+            "year": "2016 – 2020",
+            "details": "CGPA: 10"
+        }
+    ],
+    "contact": {
+        "email": "shashankchilukuri05@gmail.com",
+        "phone": "+91 95531 55893",
+        "socials": {
+            "linkedin": "https://www.linkedin.com/in/chilukuri-shashank-509546271/",
+            "github": "https://github.com/ShashankChilukuri"
+        }
+    }
+}
