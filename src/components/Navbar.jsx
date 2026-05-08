@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import resume from '../assets/C_Shashank_Resume.pdf';
+import resume from '../assets/Shashank_C.pdf';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,19 +26,25 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed w-full z-40 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md py-4' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800 py-3' : 'bg-transparent py-6'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
-                <a href="#" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-                    Shashank.dev
-                </a>
+                <motion.a
+                    href="#"
+                    whileHover={{ scale: 1.05 }}
+                    className="text-2xl font-black tracking-tighter"
+                >
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600">
+                        Shashank.dev
+                    </span>
+                </motion.a>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-8">
+                <div className="hidden md:flex items-center space-x-10">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition"
+                            className="text-sm font-bold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300"
                         >
                             {link.name}
                         </a>
@@ -47,18 +53,18 @@ const Navbar = () => {
                         href={resume}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition flex items-center gap-2 shadow-sm"
+                        className="px-6 py-2 bg-blue-600 text-white rounded-full font-bold text-sm tracking-tight hover:bg-blue-700 transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20"
                     >
-                        <FileText size={18} /> Resume
+                        <FileText size={16} /> Resume
                     </a>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none"
+                    className="md:hidden text-gray-900 dark:text-white p-2"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
 
@@ -69,15 +75,15 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800"
+                        className="md:hidden bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 overflow-hidden"
                     >
                         <div className="flex flex-col p-6 space-y-4">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
+                                    className="text-lg font-bold text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                                     onClick={() => setIsOpen(false)}
-                                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium text-lg"
                                 >
                                     {link.name}
                                 </a>
@@ -86,10 +92,10 @@ const Navbar = () => {
                                 href={resume}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className="w-full py-4 bg-blue-600 text-white rounded-2xl font-black text-center shadow-lg shadow-blue-500/20"
                                 onClick={() => setIsOpen(false)}
-                                className="text-blue-600 font-medium text-lg flex items-center gap-2"
                             >
-                                <FileText size={20} /> View Resume
+                                Resume
                             </a>
                         </div>
                     </motion.div>

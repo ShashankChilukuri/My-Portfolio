@@ -3,19 +3,38 @@ import knowledge from '../data/knowledge.json';
 
 const Experience = () => {
     return (
-        <section id="experience" className="py-20 bg-white dark:bg-gray-900">
+        <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-800/50">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">Experience</h2>
-                <div className="space-y-8 max-w-4xl mx-auto">
+                <div className="max-w-2xl mx-auto text-center mb-16">
+                    <h2 className="text-2xl md:text-3xl font-black mb-4 text-gray-900 dark:text-white uppercase tracking-tighter">Experience</h2>
+                    <p className="text-gray-500 dark:text-gray-400 font-light">
+                        My professional journey and industry contributions.
+                    </p>
+                </div>
+                <div className="max-w-4xl mx-auto space-y-12">
                     {knowledge.experience.length === 0 ? (
-                        <p className="text-center text-gray-500">Coming soon...</p>
+                        <p className="text-center text-gray-500 italic py-8">Experience details coming soon...</p>
                     ) : (
                         knowledge.experience.map((exp, index) => (
-                            <div key={index} className="border-l-4 border-blue-600 pl-6 py-2">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h3>
-                                <p className="text-lg text-blue-600 mb-1">{exp.company}</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{exp.period}</p>
-                                <p className="text-gray-600 dark:text-gray-300">{exp.description}</p>
+                            <div key={index} className="flex flex-col md:flex-row gap-8 p-10 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300 items-start">
+                                <div className="md:w-1/3 flex flex-col items-start">
+                                    {exp.domain && (
+                                        <div className="w-12 h-12 mb-6 rounded-xl overflow-hidden bg-white border border-gray-100 dark:border-gray-700 flex items-center justify-center p-2 shadow-sm">
+                                            <img
+                                                src={`https://logo.clearbit.com/${exp.domain}`}
+                                                alt={exp.company}
+                                                className="w-full h-full object-contain"
+                                                onError={(e) => e.target.style.display = 'none'}
+                                            />
+                                        </div>
+                                    )}
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-blue-600 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full">{exp.period}</span>
+                                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mt-4">{exp.company}</h4>
+                                </div>
+                                <div className="md:w-2/3">
+                                    <h3 className="text-xl font-black text-gray-900 dark:text-white mb-4 uppercase tracking-tight leading-tight">{exp.role}</h3>
+                                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed font-light">{exp.description}</p>
+                                </div>
                             </div>
                         ))
                     )}

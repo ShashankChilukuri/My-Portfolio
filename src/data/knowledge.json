@@ -7,7 +7,6 @@
         "Python",
         "Java",
         "C",
-        "Ruby (Beginner)",
         "React.js",
         "Node.js",
         "Express.js",
@@ -23,6 +22,61 @@
         "Microsoft Fabric",
         "System Design Basics",
         "Problem Solving"
+    ],
+    "premiumProjects": [
+        {
+            "title": "DocuMind AI",
+            "tagline": "AI-powered multimodal document intelligence platform",
+            "description": "Built an advanced multimodal RAG system that allows users to upload PDFs and text documents and ask contextual questions using natural language. The system performs intelligent retrieval, semantic search, chunking, embedding generation, and accurate AI-powered responses using LLMs and vector databases.",
+            "keyFeatures": [
+                "PDF upload and parsing",
+                "Text document ingestion",
+                "Semantic search",
+                "Conversational AI interface",
+                "Source-aware answers",
+                "Real-time AI responses",
+                "Vector embeddings",
+                "Chat history memory"
+            ],
+            "techStack": [
+                "Python",
+                "FastAPI",
+                "LangChain",
+                "FAISS / ChromaDB",
+                "OpenAI / Gemini",
+                "React / Next.js"
+            ]
+        },
+        {
+            "title": "HRGPT Enterprise",
+            "tagline": "AI-powered employee knowledge and HR intelligence system",
+            "status": "In Development",
+            "description": "Developed an intelligent HR RAG platform that processes employee records, policies, and internal company documents to provide instant contextual HR assistance and employee information retrieval using Retrieval-Augmented Generation.",
+            "keyFeatures": [
+                "Employee data management",
+                "HR policy Q&A",
+                "Intelligent employee search",
+                "Role-based access system",
+                "Natural language querying",
+                "Secure document retrieval",
+                "Admin dashboard",
+                "AI-powered HR assistant"
+            ],
+            "techStack": [
+                "Python",
+                "Flask / FastAPI",
+                "React",
+                "PostgreSQL",
+                "LangChain",
+                "Vector Database",
+                "JWT Authentication"
+            ],
+            "businessImpact": [
+                "Reduced manual HR queries",
+                "Faster employee data access",
+                "Improved internal knowledge retrieval"
+            ]
+        }
     ],
     "projects": [
         {
@@ -95,10 +149,18 @@
     ],
     "experience": [
         {
+            "company": "NDMatrix",
+            "domain": "",
+            "role": "SDE Intern",
+            "period": "February 2026 – April 2026",
+            "description": "Worked as an SDE Intern, contributing to backend development, REST API implementation, and scalable software solutions while collaborating on production-ready features."
+        },
+        {
             "company": "Wipro Ltd.",
+            "domain": "",
             "role": "Summer Intern – Data Engineering",
-            "period": "June 2025 – Present",
-            "description": "Working on Python-based data engineering pipelines, workflow automation, and building dashboards using Databricks. Collaborating on scalable data solutions using Microsoft Fabric and optimizing SQL queries."
+            "period": "June 2025 – August 2025",
+            "description": "Worked on Python-based data engineering pipelines, workflow automation, and building dashboards using Databricks. Collaborating on scalable data solutions using Microsoft Fabric and optimizing SQL queries."
         }
     ],
     "education": [

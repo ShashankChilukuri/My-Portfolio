@@ -38,40 +38,52 @@ const Chatbot = () => {
         <div className="fixed bottom-6 right-6 z-50">
             {/* Chat Button */}
             <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center"
+                className="relative group bg-gradient-to-tr from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white p-5 rounded-2xl shadow-2xl flex items-center justify-center transition-all duration-300 overflow-hidden"
             >
-                {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                {isOpen ? <X size={26} /> : <MessageCircle size={26} />}
             </motion.button>
 
             {/* Chat Window */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20, scale: 0.9, transformOrigin: 'bottom right' }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                        className="absolute bottom-16 right-0 w-80 md:w-96 bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col h-[500px]"
+                        exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                        className="absolute bottom-20 right-0 w-[22rem] md:w-[26rem] bg-white dark:bg-gray-900 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col h-[550px]"
                     >
                         {/* Header */}
-                        <div className="bg-blue-600 p-4 text-white">
-                            <h3 className="font-bold">Portfolio Assistant</h3>
-                            <p className="text-xs opacity-80">Ask about skills, projects, etc.</p>
+                        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+                            <div className="relative z-10 flex items-center gap-4">
+                                <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30">
+                                    <MessageCircle size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-black text-lg tracking-tight uppercase">Assistant</h3>
+                                    <div className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase opacity-80">
+                                        <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                        Always Online
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Messages */}
-                        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-900">
+                        <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gray-50/50 dark:bg-gray-950/50 scrollbar-hide">
                             {messages.map((msg) => (
                                 <div
                                     key={msg.id}
                                     className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.sender === 'user'
-                                                ? 'bg-blue-600 text-white rounded-br-none'
-                                                : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-sm border border-gray-100 dark:border-gray-700 rounded-bl-none'
+                                        className={`max-w-[85%] px-5 py-4 rounded-[1.5rem] text-sm leading-relaxed shadow-sm ${msg.sender === 'user'
+                                            ? 'bg-blue-600 text-white rounded-br-none'
+                                            : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-700 rounded-bl-none'
                                             }`}
                                     >
                                         {msg.text}
@@ -81,22 +93,27 @@ const Chatbot = () => {
                             <div ref={messagesEndRef} />
                         </div>
 
-                        {/* Input */}
-                        <div className="p-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex gap-2">
-                            <input
-                                type="text"
-                                value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)}
-                                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                                placeholder="Ask something..."
-                                className="flex-1 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            />
-                            <button
-                                onClick={handleSend}
-                                className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
-                            >
-                                <Send size={20} />
-                            </button>
+                        {/* Input Area */}
+                        <div className="p-6 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+                            <div className="relative flex items-center">
+                                <input
+                                    type="text"
+                                    value={inputValue}
+                                    onChange={(e) => setInputValue(e.target.value)}
+                                    onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                                    placeholder="Type a message..."
+                                    className="w-full pl-6 pr-14 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 border border-gray-100 dark:border-gray-700 font-medium transition-all"
+                                />
+                                <button
+                                    onClick={handleSend}
+                                    className="absolute right-2 p-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 active:scale-95"
+                                >
+                                    <Send size={18} />
+                                </button>
+                            </div>
+                            <p className="text-center text-[9px] uppercase tracking-widest font-black text-gray-400 mt-4">
+                                Powered by Shashank.dev
+                            </p>
                         </div>
                     </motion.div>
                 )}
